@@ -1,16 +1,25 @@
 <script setup>
 import { ref, inject } from 'vue'
+import html from '@/assets/icons/html.svg'
+import css from '@/assets/icons/css.svg'
+import javascript from '@/assets/icons/javascript.svg'
+import vue from '@/assets/icons/vue.svg'
+import react from '@/assets/icons/react.svg'
+import typescript from '@/assets/icons/typescript.svg'
+import git from '@/assets/icons/git.svg'
+import node from '@/assets/icons/node.svg'
+import wordpress from '@/assets/icons/wordpress.svg'
 
 const icons = ref([
-  { src: '/src/assets/icons/html.svg', alt: 'HTML logo' },
-  { src: '/src/assets/icons/css.svg', alt: 'CSS logo' },
-  { src: '/src/assets/icons/javascript.svg', alt: 'JavaScript logo' },
-  { src: '/src/assets/icons/vue.svg', alt: 'Vue logo' },
-  { src: '/src/assets/icons/react.svg', alt: 'React logo', class: 'rotate active' },
-  { src: '/src/assets/icons/git.svg', alt: 'Git logo' },
-  { src: '/src/assets/icons/typescript.svg', alt: 'TypeScript logo' },
-  { src: '/src/assets/icons/node-js.svg', alt: 'Node.js logo' },
-  { src: '/src/assets/icons/wordpress.svg', alt: 'WordPress logo' }
+  { src: html, alt: 'HTML logo' },
+  { src: css, alt: 'CSS logo' },
+  { src: javascript, alt: 'JavaScript logo' },
+  { src: vue, alt: 'Vue logo' },
+  { src: react, alt: 'React logo', class: 'rotate active' },
+  { src: git, alt: 'Git logo' },
+  { src: typescript, alt: 'TypeScript logo' },
+  { src: node, alt: 'Node.js logo' },
+  { src: wordpress, alt: 'WordPress logo' }
 ])
 
 const clickedIndex = ref(4)
