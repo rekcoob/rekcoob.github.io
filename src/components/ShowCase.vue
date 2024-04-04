@@ -2,8 +2,8 @@
 import { ref, inject } from 'vue'
 import html from '@/assets/icons/html.svg'
 import css from '@/assets/icons/css.svg'
-// import javascript from '@/assets/icons/javascript.svg'
-import javascript from '../assets/icons/javascript.svg'
+import javascript from '@/assets/icons/javascript.svg'
+// import javascript from '../assets/icons/javascript.svg'
 import vue from '@/assets/icons/vue.svg'
 import react from '@/assets/icons/react.svg'
 import typescript from '@/assets/icons/typescript.svg'
@@ -43,7 +43,7 @@ const color = inject('isLighted')
             <img
               :src="icon.src"
               :alt="icon.alt"
-              :class="{ active: color === true }"
+              :class="{ active: color }"
               @click="clicked(index)"
             />
           </div>
@@ -60,7 +60,6 @@ const color = inject('isLighted')
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4rem;
 }
-
 img {
   width: 7rem;
   cursor: pointer;
@@ -71,11 +70,11 @@ img:hover {
   transform: scale(1.2);
   transition: 0.5s ease-out;
 }
-.rotate {
-  animation: rotate 4s linear infinite;
-}
 .active {
   filter: grayscale(0%) brightness(100%);
+}
+.rotate {
+  animation: rotate 4s linear infinite;
 }
 
 .shadow {

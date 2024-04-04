@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import HeroSection from './HeroSection.vue'
+</script>
 
 <template>
   <header id="parallax">
@@ -14,18 +16,7 @@
       </ul>
     </nav>
 
-    <div class="showcase">
-      <h2 class="text-primary fade-in">Ivanovic Marian</h2>
-      <h1>
-        <span
-          class="txt-type"
-          data-wait="3000"
-          data-words='["I Bring Your Projects To Life"]'
-        ></span>
-      </h1>
-      <p class="fade-in">Full stack web developer</p>
-      <a href="#work" class="btn-main fade-in">My Work</a>
-    </div>
+    <HeroSection />
   </header>
 </template>
 
