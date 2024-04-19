@@ -3,58 +3,62 @@ import { ref, onMounted } from 'vue'
 
 const words = ['I Bring Your Projects To Life']
 const wait = 3000
-const txt = ref('')
-const wordIndex = ref(0)
-const isDeleting = ref(false)
+// const txt = ref('')
+// const wordIndex = ref(0)
+// const isDeleting = ref(false)
+const state = ref({
+  txt: '',
+  wordIndex: 0,
+  isDeleting: false
+})
 
-const type = () => {
+// Function to delay execution
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const type = async () => {
   // Current index of word
-  const current = wordIndex.value % words.length
+  const current = state.value.wordIndex % words.length
   // Get full text of current word
   const fullTxt = words[current]
 
   // Check if deleting
-  if (isDeleting.value) {
+  if (state.value.isDeleting) {
     // Remove char
-    txt.value = fullTxt.substring(0, txt.value.length - 1)
+    state.value.txt = fullTxt.substring(0, state.value.txt.length - 1)
   } else {
     // Add char
-    txt.value = fullTxt.substring(0, txt.value.length + 1)
+    state.value.txt = fullTxt.substring(0, state.value.txt.length + 1)
   }
 
   // Initial Type Speed
   let typeSpeed = 100
-
-  if (isDeleting.value) {
-    typeSpeed /= 2
-  }
+  if (state.value.isDeleting) typeSpeed /= 2
 
   // If word is complete
-  if (!isDeleting.value && txt.value === fullTxt) {
-    // Make pause at end
+  if (!state.value.isDeleting && state.value.txt === fullTxt) {
+    typeSpeed = wait // Pause at the end
     typeSpeed = wait
     // Set delete to true
-    isDeleting.value = true
-  } else if (isDeleting.value && txt.value === '') {
-    isDeleting.value = false
+    state.value.isDeleting = true
+  } else if (state.value.isDeleting && state.value.txt === '') {
+    state.value.isDeleting = false
     // Move to next word
-    wordIndex.value++
+    state.value.wordIndex++
     // Pause before starting typing
-    typeSpeed = 500
+    typeSpeed = 500 // Pause before start typing
   }
 
-  setTimeout(() => type(), typeSpeed)
+  await sleep(typeSpeed)
+  type()
 }
 
-onMounted(() => {
-  type()
-})
+onMounted(type)
 </script>
 
 <template>
   <h1>
     <span class="txt-type" :data-words="words" data-wait="3000">
-      <span class="txt">{{ txt }}</span>
+      <span class="txt">{{ state.txt }}</span>
     </span>
   </h1>
 </template>

@@ -43,9 +43,15 @@ const color = inject('isLighted')
             <img
               :src="icon.src"
               :alt="icon.alt"
-              :class="{ active: color }"
+              :class="[icon.class, { active: color }]"
               @click="clicked(index)"
             />
+            <!-- <img
+              :src="icon.src"
+              :alt="icon.alt"
+              :class="{ active: color }"
+              @click="clicked(index)"
+            /> -->
           </div>
         </div>
       </div>
@@ -62,7 +68,7 @@ const color = inject('isLighted')
 }
 img {
   width: 7rem;
-  cursor: pointer;
+  /* cursor: pointer; */
   filter: grayscale(100%) brightness(50%);
 }
 img:hover {
@@ -72,6 +78,7 @@ img:hover {
 }
 .active {
   filter: grayscale(0%) brightness(100%);
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
 }
 .rotate {
   animation: rotate 4s linear infinite;

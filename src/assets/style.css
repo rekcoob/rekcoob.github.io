@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Root Colors for Toggle Light Checkbox */
+:root {
+  --bg-gradient-dark: linear-gradient(0deg, #333, #000);
+  --bg-gradient-light: linear-gradient(0deg, #6dd1ff, #20b7ff);
+  --shadow-inner: inset 0 0 10px rgba(0, 0, 0, 1), inset 0 0 15px rgba(0, 0, 0, 0.2);
+  --shadow-outer: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
 .container {
   max-width: 70%;
   margin: auto;
