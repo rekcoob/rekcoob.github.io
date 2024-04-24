@@ -3,6 +3,7 @@ import { ref, provide } from 'vue'
 import Navbar from './components/Navbar.vue'
 import ShowCase from './components/ShowCase.vue'
 import ToggleBtn from './components/ToggleBtn.vue'
+import ToggleBtq from './components/ToggleBtq.vue'
 import MyWork from './components/MyWork.vue'
 import ContactForm from './components/ContactForm.vue'
 import SiteFooter from './components/SiteFooter.vue'
@@ -18,7 +19,8 @@ provide('isLighted', isLighted)
       <Navbar />
       <!-- <Hero /> -->
 
-      <ToggleBtn />
+      <ToggleBtq />
+      <!-- <ToggleBtn /> -->
       <ShowCase />
       <MyWork />
       <ContactForm />
