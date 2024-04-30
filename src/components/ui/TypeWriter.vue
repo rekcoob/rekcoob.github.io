@@ -3,9 +3,6 @@ import { ref, onMounted } from 'vue'
 
 const words = ['I Bring Your Projects To Life']
 const wait = 3000
-// const txt = ref('')
-// const wordIndex = ref(0)
-// const isDeleting = ref(false)
 const state = ref({
   txt: '',
   wordIndex: 0,
@@ -47,22 +44,21 @@ const type = async () => {
     // Pause before starting typing
     typeSpeed = 500 // Pause before start typing
   }
-
   await sleep(typeSpeed)
   type()
 }
-
 onMounted(type)
 </script>
 
 <template>
   <h1>
-    <span class="txt-type" :data-words="words" data-wait="3000">
-      <span class="txt">{{ state.txt }}</span>
-    </span>
+    <span class="txt">{{ state.txt }}</span>
   </h1>
 </template>
 
 <style scoped>
-/* Add your CSS styling here */
+.txt {
+  font-size: 3.4rem;
+  border-right: 0.2rem solid #777;
+}
 </style>

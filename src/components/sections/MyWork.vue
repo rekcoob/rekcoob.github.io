@@ -9,12 +9,12 @@
     <div class="projects">
       <div class="item">
         <a
-          href="../assets/img/projects/movie-app.jpg"
+          href="../../assets/img/projects/movie-app.jpg"
           data-lightbox="cases"
           data-title="Movie app built with React, Redux & TypeScript.
               With add to favorites and infinite scroll features"
         >
-          <img src="../assets/img/projects/movie-app.jpg" alt="" />
+          <img src="../../assets/img/projects/movie-app.jpg" alt="" />
         </a>
         <a href="https://rekcoob-movies.netlify.app/" class="btn-light">
           <i class="fas fa-at"></i> Movie App | Netlify Link
@@ -25,11 +25,11 @@
       </div>
       <div class="item">
         <a
-          href="../assets/img/projects/mern-shop.jpg"
+          href="../../assets/img/projects/mern-shop.jpg"
           data-lightbox="cases"
           data-title="Full featured eCommerce with shopping cart, product ratings, , PayPal integration, admin management and checkout process"
         >
-          <img src="../assets/img/projects/mern-shop.jpg" alt="" />
+          <img src="../../assets/img/projects/mern-shop.jpg" alt="" />
         </a>
         <a href="https://mern-eshop-app.herokuapp.com/" class="btn-light">
           <i class="fas fa-at"></i> MernShop | Heroku Link
@@ -40,11 +40,11 @@
       </div>
       <div class="item">
         <a
-          href="../assets/img/projects/breaking-bad.jpg"
+          href="../../assets/img/projects/breaking-bad.jpg"
           data-lightbox="cases"
           data-title="React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass"
         >
-          <img src="../assets/img/projects/breaking-bad.jpg" alt="" />
+          <img src="../../assets/img/projects/breaking-bad.jpg" alt="" />
         </a>
         <a href="https://bb-cast.netlify.app/" class="btn-light">
           <i class="fas fa-at"></i> Breaking Bad Actors | Netlify Link
@@ -55,11 +55,11 @@
       </div>
       <div class="item">
         <a
-          href="../assets/img/projects/github-searcher.jpg"
+          href="../../assets/img/projects/github-searcher.jpg"
           data-lightbox="cases"
           data-title="App using github_api to search Github profiles. Using React, Typescript, Context Api & Hooks"
         >
-          <img src="../assets/img/projects/github-searcher.jpg" alt="" />
+          <img src="../../assets/img/projects/github-searcher.jpg" alt="" />
         </a>
         <a href="https://rekcoob-github.netlify.app/" class="btn-light">
           <i class="fas fa-at"></i> Github Searcher | Netlify Link
@@ -70,11 +70,11 @@
       </div>
       <!-- <div class="item">
             <a
-              href="../assets/img/projects/service-logger.jpg"
+              href="../../assets/img/projects/service-logger.jpg"
               data-lightbox="cases"
               data-title="Full stack app to track IT department tasks and issues. Using React, TypeScript, Redux, Node, Express & MongoDB"
             >
-              <img src="../assets/img/projects/service-logger.jpg" alt="" />
+              <img src="../../assets/img/projects/service-logger.jpg" alt="" />
             </a>
             <a href="https://service-logger.herokuapp.com/" class="btn-light">
               <i class="fas fa-at"></i> Service Logger | Heroku Link
@@ -88,11 +88,11 @@
           </div> -->
       <div class="item">
         <a
-          href="../assets/img/projects/payment-tracker.jpg"
+          href="../../assets/img/projects/payment-tracker.jpg"
           data-lightbox="cases"
           data-title="Full stack app to track payments and expenses. Using React, TypeScript, Node, Express & MongoDB"
         >
-          <img src="../assets/img/projects/payment-tracker.jpg" alt="" />
+          <img src="../../assets/img/projects/payment-tracker.jpg" alt="" />
         </a>
         <a href="https://payment-tracker.herokuapp.com/" class="btn-light">
           <i class="fas fa-at"></i> Payment Tracker | Heroku Link
@@ -103,11 +103,11 @@
       </div>
       <div class="item">
         <a
-          href="../assets/img/projects/contact-book.jpg"
+          href="../../assets/img/projects/contact-book.jpg"
           data-lightbox="cases"
           data-title="Full stack app to store private Contacts. Using React, Typescript, Node, Express, MongoDB & JWT authentication"
         >
-          <img src="../assets/img/projects/contact-book.jpg" alt="" />
+          <img src="../../assets/img/projects/contact-book.jpg" alt="" />
         </a>
         <a href="https://contact-diary.herokuapp.com/" class="btn-light">
           <i class="fas fa-at"></i> Contact Book | Heroku Link
@@ -120,3 +120,86 @@
   </section>
   <!-- Section Work-->
 </template>
+
+<style scoped>
+.work {
+  margin: 3rem 5rem;
+  margin-bottom: 5rem;
+}
+
+.work h1 {
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.work h3 {
+  margin-bottom: 3rem;
+}
+
+.work .projects {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+  -ms-grid-columns: (1fr) [3];
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.work .projects img {
+  width: 100%;
+  border: 2px #fff solid;
+}
+
+.work .projects img:hover {
+  opacity: 0.5;
+  border-color: #02968a;
+  -webkit-transition: ease-out 0.5s;
+  transition: ease-out 0.5s;
+}
+
+.btn-dark,
+.btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.btn-dark:hover,
+.btn-light:hover {
+  background: #02968a;
+}
+
+.btn-dark {
+  background: black;
+}
+
+.btn-light {
+  background: #c4c4c4;
+  color: #333;
+}
+
+.btn-light:hover {
+  color: #fff;
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .work {
+    margin: 3rem 4rem;
+  }
+  .experience {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .work .projects {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .work .projects {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

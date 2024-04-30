@@ -8,3 +8,29 @@
     <p>Copyright &copy; 2024 by b0ock3R</p>
   </footer>
 </template>
+
+<style scoped>
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 12.5rem;
+  background: #000;
+}
+
+footer a {
+  margin: 0 1rem;
+}
+
+footer a :hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+  transition: 0.5s ease-out;
+}
+
+footer p {
+  margin-top: 2rem;
+}
+</style>

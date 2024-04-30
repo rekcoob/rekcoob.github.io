@@ -1,0 +1,160 @@
+.experience .fab:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+}
+
+.experience .rotate {
+  -webkit-animation: rotate 4s linear infinite;
+  animation: rotate 4s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  nav ul {
+    text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  header .showcase h1 {
+    font-size: 2.4rem;
+  }
+  header .showcase h2 {
+    margin-top: -3rem;
+    font-size: 1.4rem;
+  }
+  header .showcase p {
+    font-size: 1.3rem;
+  }
+  .hide-sm {
+    display: none;
+  }
+  .tab-content .container {
+    max-width: 100%;
+  }
+  .experience {
+    margin: 2rem 0;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .skills-container {
+    margin: 1rem 0;
+  }
+  .skills-container .skills .name {
+    width: 70px;
+  }
+  .work {
+    margin: 3rem 2rem;
+  }
+  .work h1 {
+    font-size: 2.5rem;
+  }
+  .work h3 {
+    font-size: 1.3rem;
+  }
+  .work .projects {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .contact .box {
+    width: 350px;
+  }
+  .contact .box h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  nav ul {
+    margin-top: 1rem;
+  }
+  header .showcase h1 {
+    font-size: 2.8rem;
+  }
+  header .showcase h2 {
+    font-size: 1.8rem;
+  }
+  header .showcase p {
+    font-size: 1.4rem;
+  }
+  .hide-sm {
+    display: none;
+  }
+  .tab-content .container {
+    max-width: 100%;
+  }
+  .experience {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills-container .skills .name {
+    width: 80px;
+  }
+  .work {
+    margin: 3rem 2rem;
+  }
+  .work h1 {
+    font-size: 3rem;
+  }
+  .work h3 {
+    font-size: 1.5rem;
+  }
+  .work .projects {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .work {
+    margin: 3rem 4rem;
+  }
+  .experience {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .work .projects {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .work .projects {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
