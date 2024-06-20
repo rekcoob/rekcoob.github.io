@@ -2,10 +2,11 @@
 import { ref, provide } from 'vue'
 import NavMenu from './components/layout/NavMenu.vue'
 import HeroSection from './components/sections/HeroSection.vue'
-import ShowCase from './components/sections/ShowCase.vue'
+import ShowCase from './components/sections/ShowCase-og.vue'
 import ShowCase2 from './components/sections/ShowCase-og.vue'
 import ToogleBtn from './components/ui/ToggleBtn.vue'
 import MyWork from './components/sections/MyWork.vue'
+import MyWork2 from './components/sections/MyWork2.vue'
 import ContactForm from './components/sections/ContactForm.vue'
 import SiteFooter from './components/layout/SiteFooter.vue'
 
@@ -26,6 +27,7 @@ provide('isLighted', isLighted)
       <ShowCase2 />
 
       <MyWork />
+      <MyWork2 />
 
       <ContactForm />
     </main>

@@ -16,7 +16,7 @@ const icons = ref([
   { src: css, alt: 'CSS logo' },
   { src: javascript, alt: 'JavaScript logo' },
   { src: vue, alt: 'Vue logo' },
-  { src: react, alt: 'React logo', class: 'rotate active ' },
+  { src: react, alt: 'React logo', class: 'rotate' },
   { src: git, alt: 'Git logo' },
   { src: typescript, alt: 'TypeScript logo' },
   { src: node, alt: 'Node.js logo' },
@@ -25,21 +25,32 @@ const icons = ref([
 
 const clickedIndex = ref(4)
 
+// const resetState = (index) => {
+//   icons.value.forEach((icon, i) => {
+//     // Remove 'rotate' and 'active' from all except the clicked one
+//     icon.class = i === index ? ' active' : ''
+//   })
+//   console.log('State reset!') // Updated log message for clarity
+//   clickedIndex.value = index
+// }
+// const resetStateOriginal = () => {
+//   icons.value.forEach((icon, i) => {
+//     // Set all icons back to their default state or handle differently
+//     icon.class = '' // or other default logic
+//   })
+//   console.log('Hover state reset!')
+// }
+
 const resetState = (index) => {
-  icons.value.forEach((icon, i) => {
-    // Remove 'rotate' and 'active' from all except the clicked one
-    icon.class = i === index ? 'rotate active' : ''
-  })
-  console.log('State reset!') // Updated log message for clarity
+  // Set 'rotate' class to the clicked index
   clickedIndex.value = index
 }
+
 const resetStateOriginal = () => {
-  icons.value.forEach((icon, i) => {
-    // Set all icons back to their default state or handle differently
-    icon.class = '' // or other default logic
-  })
-  console.log('Hover state reset!')
+  // Set clickedIndex back to -1 to remove 'rotate' class from all icons
+  clickedIndex.value = -1
 }
+
 const clicked = (index) => {
   // React Clicked ! or react Vue!!
   console.log(index)
@@ -61,7 +72,7 @@ const color = inject('isLighted')
           <img
             :src="icon.src"
             :alt="icon.alt"
-            :class="[icon.class, { active: color }]"
+            :class="[icon.class, { active: color, rotate: index === reactIndex }]"
             @click="clicked(index)"
             @mouseenter="resetState(index)"
             @mouseleave="resetStateOriginal"

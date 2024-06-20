@@ -3,13 +3,15 @@
 <template>
   <nav id="navbar">
     <h1 class="logo">
-      <a href="#home"> [IM] </a>
+      <a href="#home" class="hover-effect"> IM </a>
     </h1>
     <ul>
+      <!-- z homu na home je na picu ui -->
       <li><a href="#home">Home</a></li>
+      <!-- <li><a href="#home">GitHub</a></li> -->
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li><a href="#work">My Work</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </template>
@@ -45,5 +47,13 @@ nav ul li a {
 nav ul li a:hover {
   border-bottom: var(--primary-color) 2px solid;
   opacity: 1;
+}
+
+.hover-effect:hover::before {
+  content: '[';
+}
+
+.hover-effect:hover::after {
+  content: ']';
 }
 </style>

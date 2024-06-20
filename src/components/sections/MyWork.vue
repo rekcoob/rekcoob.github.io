@@ -1,158 +1,133 @@
 <template>
-  <!-- My Work Section -->
-  <section id="work" class="work">
+  <section id="work" class="my_work">
     <h1>
       My
-      <span class="text-primary">Work</span>
+      <span class="primary">Work</span>
     </h1>
     <h3>Check out some of my projects...</h3>
-    <div class="projects">
-      <div class="item">
-        <a
-          href="../../assets/img/projects/movie-app.jpg"
-          data-lightbox="cases"
-          data-title="Movie app built with React, Redux & TypeScript.
-              With add to favorites and infinite scroll features"
-        >
-          <img src="../../assets/img/projects/movie-app.jpg" alt="" />
+
+    <div class="grid">
+      <div v-for="project in projects" :key="project.img">
+        <a href="#" @click.prevent="showLightbox(project.img, project.title)">
+          <img :src="project.img" :alt="project.title" />
         </a>
-        <a href="https://rekcoob-movies.netlify.app/" class="btn-light">
-          <i class="fas fa-at"></i> Movie App | Netlify Link
+        <a :href="project.liveLink" class="btn-light">
+          <i class="fas fa-at"></i> {{ project.name }} | Link
         </a>
-        <a href="https://github.com/rekcoob/movie-app" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
-      </div>
-      <div class="item">
-        <a
-          href="../../assets/img/projects/mern-shop.jpg"
-          data-lightbox="cases"
-          data-title="Full featured eCommerce with shopping cart, product ratings, , PayPal integration, admin management and checkout process"
-        >
-          <img src="../../assets/img/projects/mern-shop.jpg" alt="" />
-        </a>
-        <a href="https://mern-eshop-app.herokuapp.com/" class="btn-light">
-          <i class="fas fa-at"></i> MernShop | Heroku Link
-        </a>
-        <a href="https://github.com/rekcoob/mern-shop" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
-      </div>
-      <div class="item">
-        <a
-          href="../../assets/img/projects/breaking-bad.jpg"
-          data-lightbox="cases"
-          data-title="React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass"
-        >
-          <img src="../../assets/img/projects/breaking-bad.jpg" alt="" />
-        </a>
-        <a href="https://bb-cast.netlify.app/" class="btn-light">
-          <i class="fas fa-at"></i> Breaking Bad Actors | Netlify Link
-        </a>
-        <a href="https://github.com/rekcoob/breaking-bad" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
-      </div>
-      <div class="item">
-        <a
-          href="../../assets/img/projects/github-searcher.jpg"
-          data-lightbox="cases"
-          data-title="App using github_api to search Github profiles. Using React, Typescript, Context Api & Hooks"
-        >
-          <img src="../../assets/img/projects/github-searcher.jpg" alt="" />
-        </a>
-        <a href="https://rekcoob-github.netlify.app/" class="btn-light">
-          <i class="fas fa-at"></i> Github Searcher | Netlify Link
-        </a>
-        <a href="https://github.com/rekcoob/github-searcher" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
-      </div>
-      <!-- <div class="item">
-            <a
-              href="../../assets/img/projects/service-logger.jpg"
-              data-lightbox="cases"
-              data-title="Full stack app to track IT department tasks and issues. Using React, TypeScript, Redux, Node, Express & MongoDB"
-            >
-              <img src="../../assets/img/projects/service-logger.jpg" alt="" />
-            </a>
-            <a href="https://service-logger.herokuapp.com/" class="btn-light">
-              <i class="fas fa-at"></i> Service Logger | Heroku Link
-            </a>
-            <a
-              href="https://github.com/rekcoob/service-logger"
-              class="btn-dark"
-            >
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div> -->
-      <div class="item">
-        <a
-          href="../../assets/img/projects/payment-tracker.jpg"
-          data-lightbox="cases"
-          data-title="Full stack app to track payments and expenses. Using React, TypeScript, Node, Express & MongoDB"
-        >
-          <img src="../../assets/img/projects/payment-tracker.jpg" alt="" />
-        </a>
-        <a href="https://payment-tracker.herokuapp.com/" class="btn-light">
-          <i class="fas fa-at"></i> Payment Tracker | Heroku Link
-        </a>
-        <a href="https://github.com/rekcoob/payment-tracker" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
-      </div>
-      <div class="item">
-        <a
-          href="../../assets/img/projects/contact-book.jpg"
-          data-lightbox="cases"
-          data-title="Full stack app to store private Contacts. Using React, Typescript, Node, Express, MongoDB & JWT authentication"
-        >
-          <img src="../../assets/img/projects/contact-book.jpg" alt="" />
-        </a>
-        <a href="https://contact-diary.herokuapp.com/" class="btn-light">
-          <i class="fas fa-at"></i> Contact Book | Heroku Link
-        </a>
-        <a href="https://github.com/rekcoob/contact-book" class="btn-dark">
-          <i class="fab fa-github"></i> View Code
-        </a>
+        <a :href="project.codeLink" class="btn-dark"> <i class="fab fa-github"></i> View Code </a>
       </div>
     </div>
+    <Lightbox
+      :isActive="isLightboxActive"
+      :currentImageSrc="currentImageSrc"
+      :currentImageTitle="currentImageTitle"
+      @close="isLightboxActive = false"
+    />
   </section>
-  <!-- Section Work-->
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import Lightbox from '../ui/LightboxComponent.vue'
+import movieApp from '@/assets/img/projects/movie-app.jpg'
+import mernShop from '@/assets/img/projects/mern-shop.jpg'
+import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
+import githubSearcher from '@/assets/img/projects/github-searcher.jpg'
+import paymentTracker from '@/assets/img/projects/payment-tracker.jpg'
+import contactBook from '@/assets/img/projects/contact-book.jpg'
+
+const projects = ref([
+  {
+    img: movieApp,
+    title:
+      'Movie app built with React, Redux & TypeScript. With add to favorites and infinite scroll features',
+    name: 'Movie App',
+    liveLink: 'https://rekcoob-movies.netlify.app/',
+    codeLink: 'https://github.com/rekcoob/movie-app'
+  },
+  {
+    img: mernShop,
+    title:
+      'Full featured eCommerce with shopping cart, product ratings, PayPal integration, admin management and checkout process',
+    name: 'MernShop',
+    liveLink: 'https://mern-eshop-app.herokuapp.com/',
+    codeLink: 'https://github.com/rekcoob/mern-shop'
+  },
+  {
+    img: breakingBad,
+    title:
+      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
+    name: 'Breaking Bad Actors',
+    liveLink: 'https://bb-cast.netlify.app/',
+    codeLink: 'https://github.com/rekcoob/breaking-bad'
+  },
+  {
+    img: githubSearcher,
+    title:
+      'App using github_api to search Github profiles. Using React, Typescript, Context Api & Hooks',
+    name: 'Github Searcher',
+    liveLink: 'https://rekcoob-github.netlify.app/',
+    codeLink: 'https://github.com/rekcoob/github-searcher'
+  },
+  {
+    img: paymentTracker,
+    title:
+      'Full stack app to track payments and expenses. Using React, TypeScript, Node, Express & MongoDB',
+    name: 'Payment Tracker',
+    liveLink: 'https://payment-tracker.herokuapp.com/',
+    codeLink: 'https://github.com/rekcoob/payment-tracker'
+  },
+  {
+    img: contactBook,
+    title:
+      'Full stack app to store private Contacts. Using React, Typescript, Node, Express, MongoDB & JWT authentication',
+    name: 'Contact Book',
+    liveLink: 'https://contact-diary.herokuapp.com/',
+    codeLink: 'https://github.com/rekcoob/contact-book'
+  }
+])
+
+const isLightboxActive = ref(false)
+const currentImageSrc = ref('')
+const currentImageTitle = ref('')
+
+const showLightbox = (src, title) => {
+  currentImageSrc.value = src
+  currentImageTitle.value = title
+  isLightboxActive.value = true
+}
+</script>
+
 <style scoped>
-.work {
+.my_work {
   margin: 3rem 5rem;
   margin-bottom: 5rem;
 }
 
-.work h1 {
+h1 {
   font-size: 4rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.work h3 {
+h3 {
   margin-bottom: 3rem;
 }
 
-.work .projects {
-  display: -ms-grid;
+/* .grid {
   display: grid;
   grid-gap: 1rem;
-  -ms-grid-columns: (1fr) [3];
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 
-.work .projects img {
+img {
   width: 100%;
   border: 2px #fff solid;
 }
 
-.work .projects img:hover {
+img:hover {
   opacity: 0.5;
-  border-color: #02968a;
+  border-color: var(--primary-color);
   -webkit-transition: ease-out 0.5s;
   transition: ease-out 0.5s;
 }
@@ -166,7 +141,7 @@
 
 .btn-dark:hover,
 .btn-light:hover {
-  background: #02968a;
+  background: var(--primary-color);
 }
 
 .btn-dark {
@@ -183,22 +158,16 @@
 }
 
 @media (min-width: 769px) and (max-width: 1199px) {
-  .work {
+  .my_work {
     margin: 3rem 4rem;
   }
-  .experience {
-    -ms-grid-columns: (1fr) [3];
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .work .projects {
-    -ms-grid-columns: (1fr) [3];
+  .my_work .projects {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
-  .work .projects {
-    -ms-grid-columns: (1fr) [3];
+  .my_work .projects {
     grid-template-columns: repeat(3, 1fr);
   }
 }
