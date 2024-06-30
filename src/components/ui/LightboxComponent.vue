@@ -3,6 +3,8 @@
     <div class="lightbox-content">
       <img :src="currentImageSrc" :alt="currentImageTitle" />
       <p>{{ currentImageTitle }}</p>
+
+      <a href="gitbhub/com"><i class="fas fa-at"></i> Link</a>
     </div>
   </div>
 </template>

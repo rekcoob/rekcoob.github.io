@@ -22,7 +22,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 4.4rem;
-  margin: 0 1.9rem;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
 nav h1 {
@@ -51,9 +52,11 @@ nav ul li a:hover {
 
 .hover-effect:hover::before {
   content: '[';
+  color: var(--primary-color);
 }
 
 .hover-effect:hover::after {
   content: ']';
+  color: var(--primary-color);
 }
 </style>

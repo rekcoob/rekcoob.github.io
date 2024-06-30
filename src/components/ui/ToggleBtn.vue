@@ -1,11 +1,19 @@
 <script setup>
 import { inject } from 'vue'
 
+// Inject the `isLighted` state
 const isLighted = inject('isLighted')
+
+// Method to toggle the `isLighted` state
+const toggleIsLighted = () => {
+  isLighted.value = !isLighted.value
+  console.log(isLighted.value)
+}
 </script>
+
 <template>
   <div class="xbox">
-    <input type="checkbox" @click="isLighted = !isLighted" />
+    <input type="checkbox" :checked="isLighted" @change="toggleIsLighted" />
   </div>
 </template>
 

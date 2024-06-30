@@ -38,6 +38,14 @@ import contactBook from '@/assets/img/projects/contact-book.jpg'
 
 const projects = ref([
   {
+    img: breakingBad,
+    title:
+      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
+    name: 'Breaking Bad Actors',
+    liveLink: 'https://bb-cast.netlify.app/',
+    codeLink: 'https://github.com/rekcoob/breaking-bad'
+  },
+  {
     img: movieApp,
     title:
       'Movie app built with React, Redux & TypeScript. With add to favorites and infinite scroll features',
@@ -53,14 +61,7 @@ const projects = ref([
     liveLink: 'https://mern-eshop-app.herokuapp.com/',
     codeLink: 'https://github.com/rekcoob/mern-shop'
   },
-  {
-    img: breakingBad,
-    title:
-      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
-    name: 'Breaking Bad Actors',
-    liveLink: 'https://bb-cast.netlify.app/',
-    codeLink: 'https://github.com/rekcoob/breaking-bad'
-  },
+
   {
     img: githubSearcher,
     title:
@@ -68,22 +69,6 @@ const projects = ref([
     name: 'Github Searcher',
     liveLink: 'https://rekcoob-github.netlify.app/',
     codeLink: 'https://github.com/rekcoob/github-searcher'
-  },
-  {
-    img: paymentTracker,
-    title:
-      'Full stack app to track payments and expenses. Using React, TypeScript, Node, Express & MongoDB',
-    name: 'Payment Tracker',
-    liveLink: 'https://payment-tracker.herokuapp.com/',
-    codeLink: 'https://github.com/rekcoob/payment-tracker'
-  },
-  {
-    img: contactBook,
-    title:
-      'Full stack app to store private Contacts. Using React, Typescript, Node, Express, MongoDB & JWT authentication',
-    name: 'Contact Book',
-    liveLink: 'https://contact-diary.herokuapp.com/',
-    codeLink: 'https://github.com/rekcoob/contact-book'
   }
 ])
 
@@ -113,12 +98,6 @@ h1 {
 h3 {
   margin-bottom: 3rem;
 }
-
-/* .grid {
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-} */
 
 img {
   width: 100%;
@@ -157,18 +136,34 @@ img:hover {
   color: #fff;
 }
 
-@media (min-width: 769px) and (max-width: 1199px) {
-  .my_work {
-    margin: 3rem 4rem;
-  }
-  .my_work .projects {
-    grid-template-columns: repeat(3, 1fr);
+.grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/*** Responsive ***/
+/* Small screens (small tablets and below) */
+@media (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
+/* Medium screens (medium tablets) */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large screens (desktops and larger tablets) */
 @media (min-width: 1200px) {
-  .my_work .projects {
-    grid-template-columns: repeat(3, 1fr);
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject } from 'vue'
+import { ref, provide, onMounted, watch } from 'vue'
 import html from '@/assets/icons/html.svg'
 import css from '@/assets/icons/css.svg'
 import javascript from '@/assets/icons/javascript.svg'
@@ -8,33 +8,72 @@ import react from '@/assets/icons/react.svg'
 import typescript from '@/assets/icons/typescript.svg'
 import git from '@/assets/icons/git.svg'
 import node from '@/assets/icons/node.svg'
-import wordpress from '@/assets/icons/wordpress.svg'
+import php from '@/assets/icons/php04.svg.png'
 import ToggleBtn from '../ui/ToggleBtn.vue'
 
-// const icons = ref([
-//   { src: html, alt: 'HTML logo' },
-//   { src: css, alt: 'CSS logo' },
-//   { src: javascript, alt: 'JavaScript logo' },
-//   { src: vue, alt: 'Vue logo' },
-//   { src: react, alt: 'React logo', class: 'rotate active ' },
-//   { src: git, alt: 'Git logo' },
-//   { src: typescript, alt: 'TypeScript logo' },
-//   { src: node, alt: 'Node.js logo' },
-//   { src: wordpress, alt: 'WordPress logo' }
-// ])
-const state = ref({
-  active: true,
-  rotate: true
-})
+const icons = ref([
+  { src: html, alt: 'HTML logo' },
+  { src: css, alt: 'CSS logo' },
+  { src: javascript, alt: 'JavaScript logo' },
+  { src: vue, alt: 'Vue logo' },
+  { src: react, alt: 'React logo', class: 'rotate' },
+  { src: git, alt: 'Git logo' },
+  { src: typescript, alt: 'TypeScript logo' },
+  { src: node, alt: 'Node.js logo' },
+  { src: php, alt: 'php logo' }
+])
 
-const clicked = () => {
-  // React Clicked ! or react Vue!!
-  console.log('hello')
+// Active index state
+const activeIndex = ref(null)
+const isLighted = ref(false)
+provide('isLighted', isLighted)
+
+// Method to set the active icon
+const setActiveIndex = (index) => {
+  if (!isLighted.value) {
+    activeIndex.value = index
+  }
 }
 
-const color = inject('isLighted')
-</script>
+// Method to reset the active icon when mouse leaves
+const resetStateOriginal = () => {
+  if (!isLighted.value) {
+    activeIndex.value = null
+  }
+}
 
+// Method for handling icon clicks
+const clicked = (index) => {
+  if (!isLighted.value) {
+    activeIndex.value = index
+  }
+  console.log(activeIndex.value)
+}
+
+// Set React icon active after 2 seconds if toggle is not pressed
+const lightUpReactIcon = () => {
+  setTimeout(() => {
+    if (!isLighted.value) {
+      activeIndex.value = 4
+      console.log('React icon lights up again after 2 seconds')
+    }
+  }, 2000)
+}
+
+// Watch for changes in the `isLighted` state
+watch(isLighted, (newValue) => {
+  if (newValue) {
+    activeIndex.value = -1 // Use -1 to indicate all icons should be active
+  } else {
+    activeIndex.value = null // Reset to no active icon when isLighted is false
+    lightUpReactIcon() // Light up the React icon after 2 seconds
+  }
+})
+
+onMounted(() => {
+  lightUpReactIcon() // Set the React icon active after 2 seconds on mount
+})
+</script>
 <template>
   <section id="skills">
     <div class="showcase">
@@ -42,34 +81,17 @@ const color = inject('isLighted')
     </div>
     <div class="container">
       <div class="experience">
-        <div>
-          <img src="@/assets/icons/html.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
-          <img src="@/assets/icons/css.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
-          <img src="@/assets/icons/javascript.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
-          <img src="@/assets/icons/vue.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
+        <div v-for="(icon, index) in icons" :key="index">
           <img
-            src="@/assets/icons/react.svg"
-            alt="JavaScript logo"
-            @click="clicked()"
-            class="active rotate"
+            :src="icon.src"
+            :alt="icon.alt"
+            :class="{
+              active: isLighted === true || activeIndex === index,
+              rotate: index === 4
+            }"
+            @mouseenter="setActiveIndex(index), clicked(index)"
+            @mouseleave="resetStateOriginal"
           />
-        </div>
-        <div>
-          <img src="@/assets/icons/javascript.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
-          <img src="@/assets/icons/javascript.svg" alt="JavaScript logo" @click="clicked()" />
-        </div>
-        <div>
-          <img src="@/assets/icons/javascript.svg" alt="JavaScript logo" @click="clicked()" />
         </div>
       </div>
     </div>
@@ -102,15 +124,17 @@ const color = inject('isLighted')
 
 img {
   width: 7rem;
-  /* cursor: pointer; */
   filter: grayscale(100%) brightness(50%);
+  cursor: pointer;
 }
 img:hover {
   filter: grayscale(0%) brightness(100%);
   transform: scale(1.2);
   transition: 0.5s ease-out;
 }
-
+.active {
+  filter: grayscale(0%) brightness(100%);
+}
 .rotate {
   animation: rotate 4s linear infinite;
 }
@@ -123,8 +147,7 @@ img:hover {
   }
 }
 
-.active {
-  filter: grayscale(0%) brightness(100%);
-  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
+.shadow {
+  text-shadow: 0 0 50px #02968a;
 }
 </style>
