@@ -84,3 +84,17 @@ h3 {
 /* .fade-in {
 
 } */
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

@@ -1,57 +1,66 @@
-<template>
-  <div v-if="isActive" id="lightbox" @click="closeLightbox">
-    <div class="lightbox-content">
-      <img :src="currentImageSrc" :alt="currentImageTitle" />
-      <p>{{ currentImageTitle }}</p>
-
-      <a href="gitbhub/com"><i class="fas fa-at"></i> Link</a>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { defineProps, defineEmits, onMounted } from 'vue'
+// import { defineProps, defineEmits } from 'vue'
 
-const props = defineProps({
+defineProps({
   isActive: Boolean,
   currentImageSrc: String,
-  currentImageTitle: String
+  currentImageTitle: String,
+  projectLink: String,
+  githubLink: String,
+  previewImage: String,
+  technologies: Array
 })
 
 const emit = defineEmits(['close'])
 
-// const closeLightbox = (e) => {
-//   if (e.target !== e.currentTarget) return
-//   emit('close')
-// }
 const closeLightbox = (e) => {
   if (e.target === e.currentTarget) {
     emit('close')
   }
 }
-
-onMounted(() => {
-  // Ensure the lightbox fades in when it becomes active
-  const lightbox = document.querySelector('.lightbox')
-  if (lightbox) {
-    lightbox.classList.add('fade-in')
-  }
-})
 </script>
+
+<template>
+  <div v-if="isActive" id="lightbox" @click="closeLightbox">
+    <div class="lightbox_content flex-col center">
+      <img :src="currentImageSrc" :alt="currentImageTitle" />
+      <div class="details_container flex">
+        <div class="">
+          <p>{{ currentImageTitle }}</p>
+          <div class="flex">
+            <!-- Project and GitHub Links -->
+            <a :href="projectLink"> <i class="fas fa-link"></i> View Project </a>
+            <a :href="githubLink"> <i class="fab fa-github"></i> View Code </a>
+          </div>
+
+          <!-- Technologies Used -->
+          <div class="technologies">
+            <span v-for="tech in technologies" :key="tech" class="tech-icon">
+              <!-- <i :class="techIcons[tech]"></i> -->
+            </span>
+          </div>
+        </div>
+
+        <button class="close-btn" @click="$emit('close')">X</button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 #lightbox {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
   animation: fadeIn 0.7s;
+  z-index: 1000;
 }
 
 @keyframes fadeIn {
@@ -63,16 +72,41 @@ onMounted(() => {
   }
 }
 
-.lightbox-content {
+/* sem bol problem  bud cenenter*/
+.lightbox_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  /* max-width: 90%; */
 }
+
 img {
-  max-width: 90%;
-  max-height: 80%;
   border: 5px solid white;
 }
+
+.details_container {
+  width: 100%;
+  max-width: 870px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 p {
-  color: white;
-  margin-top: 1rem;
+  text-align: left;
+}
+
+a {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+/* My Changes */
+button {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 </style>

@@ -7,7 +7,6 @@ const isLighted = inject('isLighted')
 // Method to toggle the `isLighted` state
 const toggleIsLighted = () => {
   isLighted.value = !isLighted.value
-  console.log(isLighted.value)
 }
 </script>
 

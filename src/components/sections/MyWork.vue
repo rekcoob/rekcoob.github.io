@@ -1,3 +1,63 @@
+<script setup>
+import { ref } from 'vue'
+import Lightbox from '../ui/LightboxComponent.vue'
+import movieApp from '@/assets/img/projects/movie-app.jpg'
+import mernShop from '@/assets/img/projects/mern-shop.jpg'
+import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
+import githubSearcher from '@/assets/img/projects/github-searcher.jpg'
+
+const projects = ref([
+  {
+    img: breakingBad,
+    title:
+      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
+    name: 'Breaking Bad Actors',
+    projectLink: 'https://rekcoob-movies.netlify.app/',
+    githubLink: 'https://github.com/rekcoob/breaking-bad',
+    technologies: ['Vue', 'Node']
+  },
+  {
+    img: movieApp,
+    title:
+      'Movie app built with React, Redux & TypeScript. With add to favorites and infinite scroll features',
+    name: 'Movie App',
+    projectLink: 'https://rekcoob-movies.netlify.app/',
+    githubLink: 'https://github.com/rekcoob/movie-app',
+    technologies: ['React', 'TypeScript', 'Redux']
+  },
+  {
+    img: mernShop,
+    title:
+      'Full featured eCommerce with shopping cart, product ratings, PayPal integration, admin management and checkout process',
+    name: 'MernShop',
+    projectLink: 'https://mern-eshop-app.herokuapp.com/',
+    githubLink: 'https://github.com/rekcoob/mern-shop',
+    technologies: ['React', 'Typescript', 'node']
+  },
+  {
+    img: githubSearcher,
+    title:
+      'App using github_api to search Github profiles. Using React, Typescript, Context Api & Hooks',
+    name: 'Github Searcher',
+    projectLink: 'https://rekcoob-github.netlify.app/',
+    githubLink: 'https://github.com/rekcoob/github-searcher',
+    technologies: ['React', 'Javascript']
+  }
+])
+
+const isLightboxActive = ref(false)
+const currentImageSrc = ref('')
+const currentImageTitle = ref('')
+const currentProject = ref({ projectLink: '', githubLink: '', technologies: [] })
+
+const showLightbox = (project) => {
+  currentImageSrc.value = project.img
+  currentImageTitle.value = project.title
+  currentProject.value = project // Update the current project data
+  isLightboxActive.value = true
+}
+</script>
+
 <template>
   <section id="work" class="my_work">
     <h1>
@@ -8,80 +68,26 @@
 
     <div class="grid">
       <div v-for="project in projects" :key="project.img">
-        <a href="#" @click.prevent="showLightbox(project.img, project.title)">
+        <a href="#" @click.prevent="showLightbox(project)">
           <img :src="project.img" :alt="project.title" />
         </a>
-        <a :href="project.liveLink" class="btn-light">
+        <a :href="project.projectLink" class="btn-light">
           <i class="fas fa-at"></i> {{ project.name }} | Link
         </a>
-        <a :href="project.codeLink" class="btn-dark"> <i class="fab fa-github"></i> View Code </a>
+        <a :href="project.githubLink" class="btn-dark"> <i class="fab fa-github"></i> View Code </a>
       </div>
     </div>
     <Lightbox
       :isActive="isLightboxActive"
       :currentImageSrc="currentImageSrc"
       :currentImageTitle="currentImageTitle"
+      :projectLink="currentProject.projectLink"
+      :githubLink="currentProject.githubLink"
+      :technologies="currentProject.technologies"
       @close="isLightboxActive = false"
     />
   </section>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import Lightbox from '../ui/LightboxComponent.vue'
-import movieApp from '@/assets/img/projects/movie-app.jpg'
-import mernShop from '@/assets/img/projects/mern-shop.jpg'
-import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
-import githubSearcher from '@/assets/img/projects/github-searcher.jpg'
-import paymentTracker from '@/assets/img/projects/payment-tracker.jpg'
-import contactBook from '@/assets/img/projects/contact-book.jpg'
-
-const projects = ref([
-  {
-    img: breakingBad,
-    title:
-      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
-    name: 'Breaking Bad Actors',
-    liveLink: 'https://bb-cast.netlify.app/',
-    codeLink: 'https://github.com/rekcoob/breaking-bad'
-  },
-  {
-    img: movieApp,
-    title:
-      'Movie app built with React, Redux & TypeScript. With add to favorites and infinite scroll features',
-    name: 'Movie App',
-    liveLink: 'https://rekcoob-movies.netlify.app/',
-    codeLink: 'https://github.com/rekcoob/movie-app'
-  },
-  {
-    img: mernShop,
-    title:
-      'Full featured eCommerce with shopping cart, product ratings, PayPal integration, admin management and checkout process',
-    name: 'MernShop',
-    liveLink: 'https://mern-eshop-app.herokuapp.com/',
-    codeLink: 'https://github.com/rekcoob/mern-shop'
-  },
-
-  {
-    img: githubSearcher,
-    title:
-      'App using github_api to search Github profiles. Using React, Typescript, Context Api & Hooks',
-    name: 'Github Searcher',
-    liveLink: 'https://rekcoob-github.netlify.app/',
-    codeLink: 'https://github.com/rekcoob/github-searcher'
-  }
-])
-
-const isLightboxActive = ref(false)
-const currentImageSrc = ref('')
-const currentImageTitle = ref('')
-
-const showLightbox = (src, title) => {
-  currentImageSrc.value = src
-  currentImageTitle.value = title
-  isLightboxActive.value = true
-}
-</script>
 
 <style scoped>
 .my_work {

@@ -8,7 +8,7 @@ import react from '@/assets/icons/react.svg'
 import typescript from '@/assets/icons/typescript.svg'
 import git from '@/assets/icons/git.svg'
 import node from '@/assets/icons/node.svg'
-import php from '@/assets/icons/php04.svg.png'
+import php from '@/assets/icons/php.svg'
 import ToggleBtn from '../ui/ToggleBtn.vue'
 
 const icons = ref([
@@ -27,6 +27,8 @@ const icons = ref([
 const activeIndex = ref(null)
 const isLighted = ref(false)
 provide('isLighted', isLighted)
+
+provide
 
 // Method to set the active icon
 const setActiveIndex = (index) => {
@@ -47,7 +49,6 @@ const clicked = (index) => {
   if (!isLighted.value) {
     activeIndex.value = index
   }
-  console.log(activeIndex.value)
 }
 
 // Set React icon active after 2 seconds if toggle is not pressed
@@ -55,7 +56,6 @@ const lightUpReactIcon = () => {
   setTimeout(() => {
     if (!isLighted.value) {
       activeIndex.value = 4
-      console.log('React icon lights up again after 2 seconds')
     }
   }, 2000)
 }
@@ -74,6 +74,7 @@ onMounted(() => {
   lightUpReactIcon() // Set the React icon active after 2 seconds on mount
 })
 </script>
+
 <template>
   <section id="skills">
     <div class="showcase">
@@ -89,7 +90,7 @@ onMounted(() => {
               active: isLighted === true || activeIndex === index,
               rotate: index === 4
             }"
-            @mouseenter="setActiveIndex(index), clicked(index)"
+            @mouseenter="setActiveIndex(index)"
             @mouseleave="resetStateOriginal"
           />
         </div>
@@ -125,7 +126,7 @@ onMounted(() => {
 img {
   width: 7rem;
   filter: grayscale(100%) brightness(50%);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 img:hover {
   filter: grayscale(0%) brightness(100%);

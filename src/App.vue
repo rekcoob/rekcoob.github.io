@@ -1,5 +1,6 @@
 <script setup>
 import NavMenu from './components/layout/NavMenu.vue'
+import MenuTest from './components/layout/MenuTest.vue'
 import HeroSection from './components/sections/HeroSection.vue'
 import ShowCase from './components/sections/ShowCase.vue'
 import MyWork from './components/sections/MyWork.vue'
@@ -12,6 +13,7 @@ import SiteFooter from './components/layout/SiteFooter.vue'
     <main>
       <header>
         <NavMenu />
+        <MenuTest />
         <HeroSection />
       </header>
       <div class="container">
