@@ -12,14 +12,12 @@ import SvgIcon from '../ui/SvgIcon.vue'
     <p class="fade-in">JavaScript developer</p>
     <a href="#work" class="btn-main fade-in">My Work</a>
 
-    <!-- <a href="https://github.com/rekcoob" class="github-icon">
-      <SvgIcon :src="githubSVG" size="24px" color="var(--primary-color)" />
-    </a>
-    <a href="https://github.com/rekcoob" class="github-icon">
-      <SvgIcon :src="githubSVG1" size="24px" color="var(--primary-color)" />
+    <!-- <a href="https://github.com/rekcoob">
+      <img src="@/assets/icons/github.svg" alt="GitHub logo" class="github-icon" />
     </a> -->
-    <!-- <a href="https://github.com/rekcoob" class="github-icon">
-      <img src="@/assets/icons/github.svg" alt="JavaScript logo" />
+    <!-- 
+    <a href="https://github.com/rekcoob" class="github-icon">
+      <SvgIcon :src="githubSVG1" size="24px" color="red" />
     </a> -->
   </section>
 </template>
@@ -43,6 +41,7 @@ p {
 
 img {
   background-color: white;
+  color: white;
   width: 54px; /* Adjust the size of the icon */
   height: 54px; /* Adjust the size of the icon */
 }

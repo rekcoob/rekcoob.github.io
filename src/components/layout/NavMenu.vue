@@ -6,10 +6,10 @@
       <a href="#home"><span>[</span> IM <span>]</span></a>
     </h1>
     <ul>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work">My Work</a></li>
-      <li><a href="#home">GitHub</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#work" class="nav-link">My Work</a></li>
+      <li><a href="#home" class="nav-link">GitHub</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
   </nav>
 </template>
@@ -42,18 +42,40 @@ nav {
   opacity: 1;
 }
 
-nav ul {
+ul {
   display: flex;
 }
 
-nav ul li a {
+.nav-link {
   padding: 0.625rem 1.25rem;
   margin: 0 0.3rem;
   opacity: 0.7;
 }
 
-nav ul li a:hover {
+.nav-link:hover {
   border-bottom: var(--primary-color) 2px solid;
   opacity: 1;
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav ul {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+  }
+  nav ul {
+    text-align: center;
+    flex-direction: column;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
 }
 </style>
