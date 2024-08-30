@@ -2,14 +2,13 @@
 import { ref } from 'vue'
 import emailjs from '@emailjs/browser'
 
-// Create a ref for the form
 const form = ref(null)
+const responseMessage = ref('')
 
 // Access environment variables
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-const publicKey2 = process.env.VUE_APP_EMAILJS_PUBLIC_KEY
 
 const sendEmail = async () => {
   try {
@@ -17,9 +16,10 @@ const sendEmail = async () => {
       publicKey
     })
     console.log('SUCCESS!')
+    responseMessage.value = 'Your message has been sent successfully!'
   } catch (error) {
     console.log('FAILED...', error.text)
-    console.log(publicKey2)
+    responseMessage.value = 'Failed to send message.'
   }
 }
 </script>
@@ -28,7 +28,6 @@ const sendEmail = async () => {
   <section id="contact" class="contact_me">
     <div class="box">
       <h2>Contact Me</h2>
-      <!-- <form action="https://formspree.io/f/meqplpjo" method="POST"> -->
       <form ref="form" @submit.prevent="sendEmail">
         <div class="inputBox">
           <input type="text" v-model="name" name="name" required />
@@ -51,7 +50,16 @@ const sendEmail = async () => {
         <div class="submit">
           <input type="submit" value="Send" />
         </div>
-        <!-- <p v-if="responseMessage">{{ responseMessage }}</p> -->
+        <p
+          v-if="responseMessage"
+          :class="{
+            response: true,
+            success: responseMessage.includes('success'),
+            error: responseMessage.includes('Failed')
+          }"
+        >
+          {{ responseMessage }}
+        </p>
       </form>
     </div>
   </section>
@@ -176,5 +184,20 @@ const sendEmail = async () => {
   h2 {
     font-size: 1.7rem;
   }
+}
+
+/* existing styles */
+
+.response {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.response.success {
+  color: var(--primary-color); /* Green color for success messages */
+}
+
+.response.error {
+  color: #f44336; /* Red color for error messages */
 }
 </style>
