@@ -40,8 +40,6 @@ p {
 }
 
 img {
-  background-color: white;
-  color: white;
   width: 54px; /* Adjust the size of the icon */
   height: 54px; /* Adjust the size of the icon */
 }
@@ -50,5 +48,22 @@ img:hover {
   background-color: var(--primary-color);
   transform: scale(1.2);
   transition: 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h2 {
+    margin-top: -3rem;
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 1.4rem;
+  }
 }
 </style>

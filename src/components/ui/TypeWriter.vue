@@ -51,14 +51,28 @@ onMounted(type)
 </script>
 
 <template>
-  <h1>
+  <h1>{{ state.txt }}</h1>
+  <!-- <h1>
     <span class="txt">{{ state.txt }}</span>
-  </h1>
+  </h1> -->
 </template>
 
 <style scoped>
-.txt {
+h1 {
   font-size: 3.4rem;
   border-right: 0.2rem solid #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2.4rem;
+  }
 }
 </style>

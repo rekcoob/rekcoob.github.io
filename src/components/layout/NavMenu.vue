@@ -56,7 +56,7 @@ ul {
   border-bottom: var(--primary-color) 2px solid;
   opacity: 1;
 }
-
+/* Responsiveness */
 @media (min-width: 501px) and (max-width: 768px) {
   nav {
     flex-direction: column;
