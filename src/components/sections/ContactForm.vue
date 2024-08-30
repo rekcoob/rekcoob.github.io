@@ -9,6 +9,7 @@ const form = ref(null)
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+const publicKey2 = process.env.VUE_APP_EMAILJS_PUBLIC_KEY
 
 const sendEmail = async () => {
   try {
@@ -18,6 +19,7 @@ const sendEmail = async () => {
     console.log('SUCCESS!')
   } catch (error) {
     console.log('FAILED...', error.text)
+    console.log(publicKey2)
   }
 }
 </script>
