@@ -57,7 +57,7 @@ const lightUpReactIcon = () => {
     if (!isLighted.value) {
       activeIndex.value = 4
     }
-  }, 2000)
+  }, 1000)
 }
 
 // Watch for changes in the `isLighted` state
@@ -145,6 +145,19 @@ img:hover {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  img {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  img {
+    width: 3rem;
   }
 }
 

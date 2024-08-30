@@ -91,14 +91,12 @@ const showLightbox = (project) => {
 
 <style scoped>
 .my_work {
-  margin: 3rem 5rem;
-  margin-bottom: 5rem;
+  margin: 3rem 5rem 5rem;
 }
 
 h1 {
   font-size: 4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0 1rem;
 }
 
 h3 {
@@ -107,14 +105,15 @@ h3 {
 
 img {
   width: 100%;
-  border: 2px #fff solid;
+  border: 2px solid #fff;
+  transition:
+    opacity 0.5s ease-out,
+    border-color 0.5s ease-out;
 }
 
 img:hover {
   opacity: 0.5;
   border-color: var(--primary-color);
-  -webkit-transition: ease-out 0.5s;
-  transition: ease-out 0.5s;
 }
 
 .btn-dark,
@@ -148,28 +147,42 @@ img:hover {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/*** Responsive ***/
-/* Small screens (small tablets and below) */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 500px) {
+  .my_work {
+    margin: 3rem 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
   .grid {
-    display: grid;
     grid-template-columns: 1fr;
   }
 }
 
-/* Medium screens (medium tablets) */
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 501px) and (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
   .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
-/* Large screens (desktops and larger tablets) */
+@media (min-width: 769px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 1200px) {
   .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>
