@@ -1,30 +1,62 @@
+<script setup>
+import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
+
+// Create a ref for the form
+const form = ref(null)
+
+// Access environment variables
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+const sendEmail = async () => {
+  try {
+    await emailjs.sendForm(serviceId, templateId, form.value, {
+      publicKey
+    })
+    console.log('SUCCESS!')
+  } catch (error) {
+    console.log('FAILED...', error.text)
+  }
+}
+</script>
+
 <template>
-  <section id="contact" class="contact">
+  <section id="contact" class="contact_me">
     <div class="box">
       <h2>Contact Me</h2>
-      <form action="https://formspree.io/f/meqplpjo" method="POST">
+      <!-- <form action="https://formspree.io/f/meqplpjo" method="POST"> -->
+      <form ref="form" @submit.prevent="sendEmail">
         <div class="inputBox">
-          <input type="text" name="name" required />
+          <input type="text" v-model="name" name="name" required />
           <label>Name</label>
         </div>
         <div class="inputBox">
-          <input type="text" name="_replyto" required />
+          <input type="email" v-model="email" name="email" required />
           <label>Email</label>
         </div>
         <div class="inputBox">
-          <textarea name="message" style="resize: none" rows="8" required></textarea>
+          <textarea
+            v-model="message"
+            name="message"
+            style="resize: none"
+            rows="8"
+            required
+          ></textarea>
           <label>Message</label>
         </div>
         <div class="submit">
           <input type="submit" value="Send" />
         </div>
+        <!-- <p v-if="responseMessage">{{ responseMessage }}</p> -->
       </form>
     </div>
   </section>
 </template>
 
 <style scoped>
-.contact {
+.contact_me {
   position: relative;
   background: url('@/assets/img/form.jpg') no-repeat center center/cover;
   background-attachment: fixed; /* Parallax Effect */
@@ -39,7 +71,6 @@
   width: 450px; /* 28.125rem */
   padding: 2.5rem; /* 40px in rem */
   background: rgba(0, 0, 0, 0.8);
-  box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 
@@ -134,5 +165,14 @@
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 50px var(--primary-color);
+}
+
+@media (max-width: 500px) {
+  .box {
+    width: 350px;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
 }
 </style>

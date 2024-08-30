@@ -33,3 +33,4 @@ coverage
 # me
 .toDos.md
 .chatGPT.md
+.env
