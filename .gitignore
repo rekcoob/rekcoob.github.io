@@ -30,7 +30,7 @@ coverage
 *.tsbuildinfo
 
 
-# me
+# My Files
 .toDos.md
-.chatGPT.md
+.chatGpt.md
 .env

@@ -117,14 +117,14 @@ onMounted(() => {
   margin: 5rem 0 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+  grid-gap: 3rem;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 img {
-  width: 7rem;
+  width: 6.5rem;
   filter: grayscale(100%) brightness(50%);
   /* cursor: pointer; */
 }
