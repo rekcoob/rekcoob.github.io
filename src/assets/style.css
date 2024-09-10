@@ -44,32 +44,11 @@ img {
   max-width: 100%;
 }
 
-/* Custom Settings Repeatable Fur Multiple Components*/
 h1,
 h2,
 h3 {
   font-weight: 500;
   font-size: 2rem;
-}
-
-/* stuff */
-
-/* Reusable Components */
-.btn-main {
-  display: inline-block;
-  border: 1px solid;
-  padding: 10px 30px;
-  letter-spacing: 2px;
-  font-size: 1.25rem;
-  /* -webkit-transition: 0.5s; */
-  transition: 0.5s;
-  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
-}
-.btn-main:hover {
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  box-shadow: 0 0 50px var(--primary-color);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
 }
 
 /* Reusable Bootstrap Classes*/
@@ -85,16 +64,17 @@ h3 {
   justify-content: center;
   text-align: center;
 }
+
 /* .grid {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
 } */
+
 .hide-sm {
   display: none;
 }
 
 /* Animations & Effects*/
 /* .fade-in {
-
 } */

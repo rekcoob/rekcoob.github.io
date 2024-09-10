@@ -78,12 +78,11 @@ const sendEmail = async () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px; /* 28.125rem */
-  padding: 2.5rem; /* 40px in rem */
+  width: 450px;
+  padding: 40px;
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
-
 .box h2 {
   margin: 0 0 1.875rem; /* 30px in rem */
   padding: 0;
@@ -92,8 +91,6 @@ const sendEmail = async () => {
 
 .inputBox {
   position: relative;
-
-  /* Change the white to any color ;) */
 }
 
 .inputBox input,
@@ -177,6 +174,19 @@ const sendEmail = async () => {
   box-shadow: 0 0 50px var(--primary-color);
 }
 
+/* Form submit response msg */
+.response {
+  text-align: center;
+  margin-top: 1rem;
+}
+.response.success {
+  color: var(--primary-color);
+}
+.response.error {
+  color: #f44336;
+}
+
+/* Responsive */
 @media (max-width: 500px) {
   .box {
     width: 350px;
@@ -184,20 +194,5 @@ const sendEmail = async () => {
   h2 {
     font-size: 1.7rem;
   }
-}
-
-/* existing styles */
-
-.response {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.response.success {
-  color: var(--primary-color); /* Green color for success messages */
-}
-
-.response.error {
-  color: #f44336; /* Red color for error messages */
 }
 </style>

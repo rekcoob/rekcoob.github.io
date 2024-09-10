@@ -1,5 +1,5 @@
 <script setup>
-import closeIcon from '@/assets/icons/xmark3.svg'
+import closeIcon from '@/assets/img/close.png'
 
 import ReactIcon from '@/assets/icons/react.svg'
 import VueIcon from '@/assets/icons/vue.svg'
@@ -40,22 +40,24 @@ const techIcons = {
   <div v-if="isActive" class="lightbox flex-col center" @click="closeLightbox">
     <img class="lightbox-image" :src="currentImageSrc" :alt="currentImageTitle" />
 
-    <div class="details_container">
-      <div class="title">
-        <p>{{ currentImageTitle }}</p>
-      </div>
+    <div class="details_container flex">
+      <div>
+        <div class="title">
+          <p>{{ currentImageTitle }}</p>
+        </div>
+        <div class="links flex center">
+          <!-- Project and GitHub Links -->
+          <a :href="projectLink"> <i class="fas fa-link"></i> View Project </a>
+          <a :href="githubLink"> <i class="fab fa-github"></i> View Code </a>
 
-      <!-- Project and GitHub Links -->
-      <div class="links">
-        <a :href="projectLink"> <i class="fas fa-link"></i> View Project </a>
-        <a :href="githubLink"> <i class="fab fa-github"></i> View Code </a>
-      </div>
-
-      <!-- Technologies Used -->
-      <div class="techs">
-        <span v-for="tech in technologies" :key="tech">
-          <img :src="techIcons[tech]" :alt="tech" class="tech-icon" />
-        </span>
+          <!-- Technologies Used -->
+          <div class="technologies">
+            <!-- <i v-for="tech in technologies" :key="tech" :class="techIcons[tech]"></i> -->
+            <span v-for="tech in technologies" :key="tech">
+              <img :src="techIcons[tech]" :alt="tech" class="tech-icon" />
+            </span>
+          </div>
+        </div>
       </div>
 
       <div class="close-btn" @click="$emit('close')">
@@ -92,49 +94,29 @@ const techIcons = {
 .details_container {
   width: 100%;
   max-width: 870px;
-
-  display: grid;
-  grid-template-areas:
-    'title title close-btn'
-    'links techs close-btn';
-  grid-template-columns: auto 1fr 40px;
-  /* grid-template-rows: 1fr auto; */
   align-items: center;
-  justify-content: center;
+
+  justify-content: space-between;
 }
 
-.title {
-  grid-area: title;
+.details_container p {
   text-align: left;
 }
 
-.title p {
-  margin: 5px 0;
-  /* Hide Text Overflow */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.links {
-  grid-area: links;
-  /* justify-self: start; */
-}
-.links a {
+/* Project and GitHub Links */
+a {
   background-color: var(--primary-color);
-  padding: 8px 16px;
-  margin-right: 8px;
-  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
 }
-.links a:hover {
+a:hover {
   filter: brightness(0.85);
 }
 
-.techs {
-  grid-area: techs;
-  margin-left: 10px;
-  justify-self: start;
+.technologies {
+  /* gap: 10px; */
+  margin: 0 auto;
 }
-
 .tech-icon {
   width: 30px;
   height: 30px;
@@ -142,11 +124,16 @@ const techIcons = {
 }
 
 .close-btn {
-  grid-area: close-btn;
   cursor: pointer;
+  /* padding: 10px; */
+  /* background-color: transparent; */
+  /* border: none; */
   opacity: 0.7;
 }
 .close-btn:hover {
   opacity: 1;
+}
+.close-btn img {
+  /* width: 40px; */
 }
 </style>

@@ -1,8 +1,5 @@
 <script setup>
 import TypeWriter from '../ui/TypeWriter.vue'
-import githubSVG from '@/assets/icons/github.svg'
-import githubSVG1 from '@/assets/icons/new/github-icon-1.svg'
-import SvgIcon from '../ui/SvgIcon.vue'
 </script>
 
 <template>
@@ -11,14 +8,6 @@ import SvgIcon from '../ui/SvgIcon.vue'
     <TypeWriter />
     <p class="fade-in">JavaScript developer</p>
     <a href="#work" class="btn-main fade-in">My Work</a>
-
-    <!-- <a href="https://github.com/rekcoob">
-      <img src="@/assets/icons/github.svg" alt="GitHub logo" class="github-icon" />
-    </a> -->
-    <!-- 
-    <a href="https://github.com/rekcoob" class="github-icon">
-      <SvgIcon :src="githubSVG1" size="24px" color="red" />
-    </a> -->
   </section>
 </template>
 
@@ -38,16 +27,19 @@ p {
   font-size: 1.5rem;
   margin: 1rem 0 1.9rem;
 }
-
-img {
-  width: 54px; /* Adjust the size of the icon */
-  height: 54px; /* Adjust the size of the icon */
+.btn-main {
+  display: inline-block;
+  border: 1px solid;
+  padding: 10px 30px;
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+  transition: 0.5s;
 }
-
-img:hover {
+.btn-main:hover {
   background-color: var(--primary-color);
-  transform: scale(1.2);
-  transition: 0.5s ease-out;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 50px var(--primary-color);
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
 }
 
 /* Responsive */
@@ -59,11 +51,19 @@ img:hover {
   p {
     font-size: 1.3rem;
   }
+  .btn-main {
+    padding: 8px 25px;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 500px) {
   h2 {
     font-size: 1.4rem;
+  }
+  .btn-main {
+    padding: 7px 20px;
+    font-size: 1rem;
   }
 }
 </style>

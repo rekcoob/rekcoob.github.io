@@ -69,7 +69,6 @@ h1 {
     font-size: 2.8rem;
   }
 }
-
 @media (max-width: 500px) {
   h1 {
     font-size: 2.4rem;

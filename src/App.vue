@@ -37,6 +37,6 @@ html {
 }
 .container {
   max-width: 1440px; /* Maximum width of the container */
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto;
 }
 </style>
