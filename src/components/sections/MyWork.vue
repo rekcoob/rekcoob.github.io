@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import Lightbox from '../ui/LightboxComponent.vue'
+import Lightbox from '../ui/LightBox.vue'
 import movieApp from '@/assets/img/projects/movie-app.jpg'
 import mernShop from '@/assets/img/projects/mern-shop.jpg'
 import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
@@ -14,7 +14,7 @@ const projects = ref([
     name: 'Breaking Bad Actors',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/breaking-bad',
-    technologies: ['Vue', 'Node']
+    technologies: ['Vue', 'NodeJS']
   },
   {
     img: movieApp,
@@ -23,7 +23,7 @@ const projects = ref([
     name: 'Movie App',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/movie-app',
-    technologies: ['React', 'TypeScript', 'Redux']
+    technologies: ['React', 'Redux', 'TypeScript']
   },
   {
     img: mernShop,
@@ -32,7 +32,7 @@ const projects = ref([
     name: 'MernShop',
     projectLink: 'https://mern-eshop-app.herokuapp.com/',
     githubLink: 'https://github.com/rekcoob/mern-shop',
-    technologies: ['React', 'Typescript', 'node']
+    technologies: ['React', 'TypeScript', 'NodeJS', 'MongoDB']
   },
   {
     img: githubSearcher,
@@ -41,7 +41,7 @@ const projects = ref([
     name: 'Github Searcher',
     projectLink: 'https://rekcoob-github.netlify.app/',
     githubLink: 'https://github.com/rekcoob/github-searcher',
-    technologies: ['React', 'Javascript']
+    technologies: ['React']
   }
 ])
 

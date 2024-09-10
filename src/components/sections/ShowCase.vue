@@ -28,8 +28,6 @@ const activeIndex = ref(null)
 const isLighted = ref(false)
 provide('isLighted', isLighted)
 
-provide
-
 // Method to set the active icon
 const setActiveIndex = (index) => {
   if (!isLighted.value) {
@@ -41,13 +39,6 @@ const setActiveIndex = (index) => {
 const resetStateOriginal = () => {
   if (!isLighted.value) {
     activeIndex.value = null
-  }
-}
-
-// Method for handling icon clicks
-const clicked = (index) => {
-  if (!isLighted.value) {
-    activeIndex.value = index
   }
 }
 
@@ -126,7 +117,6 @@ onMounted(() => {
 img {
   width: 6.5rem;
   filter: grayscale(100%) brightness(50%);
-  /* cursor: pointer; */
 }
 img:hover {
   filter: grayscale(0%) brightness(100%);
@@ -149,19 +139,21 @@ img:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  img {
-    width: 5rem;
-  }
-}
-
 @media (max-width: 500px) {
+  .experience {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
   img {
     width: 3rem;
   }
 }
-
-.shadow {
-  text-shadow: 0 0 50px #02968a;
+@media (max-width: 768px) {
+  .experience {
+    grid-gap: 2rem;
+  }
+  img {
+    width: 5rem;
+  }
 }
 </style>
