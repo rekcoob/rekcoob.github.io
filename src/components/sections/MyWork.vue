@@ -14,7 +14,7 @@ const projects = ref([
     name: 'Breaking Bad Actors',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/breaking-bad',
-    technologies: ['Vue', 'NodeJS']
+    technologies: ['Vue', 'NodeJS', 'cockhead']
   },
   {
     img: movieApp,

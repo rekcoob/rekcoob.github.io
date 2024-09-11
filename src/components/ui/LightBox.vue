@@ -45,16 +45,15 @@ const techIcons = {
         <p>{{ currentImageTitle }}</p>
       </div>
 
-      <!-- Project and GitHub Links -->
       <div class="links">
         <a :href="projectLink"> <i class="fas fa-link"></i> View Project </a>
         <a :href="githubLink"> <i class="fab fa-github"></i> View Code </a>
       </div>
 
-      <!-- Technologies Used -->
       <div class="techs">
         <span v-for="tech in technologies" :key="tech">
-          <img :src="techIcons[tech]" :alt="tech" class="tech-icon" />
+          <!-- <img :src="techIcons[tech]" :alt="tech" class="tech-icon" /> -->
+          <img v-if="techIcons[tech]" :src="techIcons[tech]" :alt="tech" class="tech-icon" />
         </span>
       </div>
 
@@ -92,22 +91,16 @@ const techIcons = {
 .details_container {
   width: 100%;
   max-width: 870px;
-
   display: grid;
-  grid-template-areas:
-    'title title close-btn'
-    'links techs close-btn';
   grid-template-columns: auto 1fr 40px;
-  /* grid-template-rows: 1fr auto; */
   align-items: center;
   justify-content: center;
 }
 
 .title {
-  grid-area: title;
+  grid-column: 1 / 3;
   text-align: left;
 }
-
 .title p {
   margin: 5px 0;
   /* Hide Text Overflow */
@@ -115,10 +108,7 @@ const techIcons = {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.links {
-  grid-area: links;
-  /* justify-self: start; */
-}
+
 .links a {
   background-color: var(--primary-color);
   padding: 8px 16px;
@@ -130,11 +120,10 @@ const techIcons = {
 }
 
 .techs {
-  grid-area: techs;
   margin-left: 10px;
   justify-self: start;
+  align-self: center;
 }
-
 .tech-icon {
   width: 30px;
   height: 30px;
@@ -142,11 +131,27 @@ const techIcons = {
 }
 
 .close-btn {
-  grid-area: close-btn;
+  grid-column: 3;
+  grid-row: 1 / 3;
   cursor: pointer;
   opacity: 0.7;
 }
 .close-btn:hover {
   opacity: 1;
+}
+
+@media (max-width: 678px) {
+  .links a {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+  .close-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .tech-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 </style>
