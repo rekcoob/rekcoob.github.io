@@ -1,12 +1,13 @@
 <script setup>
-import closeIcon from '@/assets/icons/xmark3.svg'
-
-import ReactIcon from '@/assets/icons/react.svg'
-import VueIcon from '@/assets/icons/vue.svg'
-import NodeJSIcon from '@/assets/icons/node.svg'
-import TypeScriptIcon from '@/assets/icons/typescript.svg'
-import ReduxIcon from '@/assets/icons/redux.svg'
-import MongoIcon from '@/assets/icons/mongo.svg'
+import {
+  ReactIcon,
+  VueIcon,
+  NodeIcon,
+  TypescriptIcon,
+  ReduxIcon,
+  MongoIcon,
+  closeIcon
+} from '@/assets/icons'
 
 defineProps({
   isActive: Boolean,
@@ -29,8 +30,8 @@ const closeLightbox = (e) => {
 const techIcons = {
   React: ReactIcon,
   Vue: VueIcon,
-  NodeJS: NodeJSIcon,
-  TypeScript: TypeScriptIcon,
+  Node: NodeIcon,
+  Typescript: TypescriptIcon,
   Redux: ReduxIcon,
   MongoDB: MongoIcon
 }

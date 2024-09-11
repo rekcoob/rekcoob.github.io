@@ -14,7 +14,7 @@ const projects = ref([
     name: 'Breaking Bad Actors',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/breaking-bad',
-    technologies: ['Vue', 'NodeJS', 'cockhead']
+    technologies: ['Vue', 'Node', 'cockhead']
   },
   {
     img: movieApp,
@@ -23,7 +23,7 @@ const projects = ref([
     name: 'Movie App',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/movie-app',
-    technologies: ['React', 'Redux', 'TypeScript']
+    technologies: ['React', 'Redux', 'Typescript']
   },
   {
     img: mernShop,
@@ -32,7 +32,7 @@ const projects = ref([
     name: 'MernShop',
     projectLink: 'https://mern-eshop-app.herokuapp.com/',
     githubLink: 'https://github.com/rekcoob/mern-shop',
-    technologies: ['React', 'TypeScript', 'NodeJS', 'MongoDB']
+    technologies: ['React', 'Typescript', 'Node', 'MongoDB']
   },
   {
     img: githubSearcher,

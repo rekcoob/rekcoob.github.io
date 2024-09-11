@@ -1,26 +1,29 @@
 <script setup>
 import { ref, provide, onMounted, watch } from 'vue'
-import html from '@/assets/icons/html.svg'
-import css from '@/assets/icons/css.svg'
-import javascript from '@/assets/icons/javascript.svg'
-import vue from '@/assets/icons/vue.svg'
-import react from '@/assets/icons/react.svg'
-import typescript from '@/assets/icons/typescript.svg'
-import git from '@/assets/icons/git.svg'
-import node from '@/assets/icons/node.svg'
-import php from '@/assets/icons/php.svg'
+import {
+  HtmlIcon,
+  CssIcon,
+  JavascriptIcon,
+  VueIcon,
+  ReactIcon,
+  TypescriptIcon,
+  GitIcon,
+  NodeIcon,
+  PhpIcon
+} from '@/assets/icons'
+
 import ToggleBtn from '../ui/ToggleBtn.vue'
 
 const icons = ref([
-  { src: html, alt: 'HTML logo' },
-  { src: css, alt: 'CSS logo' },
-  { src: javascript, alt: 'JavaScript logo' },
-  { src: vue, alt: 'Vue logo' },
-  { src: react, alt: 'React logo', class: 'rotate' },
-  { src: git, alt: 'Git logo' },
-  { src: typescript, alt: 'TypeScript logo' },
-  { src: node, alt: 'Node.js logo' },
-  { src: php, alt: 'php logo' }
+  { src: HtmlIcon, alt: 'HTML logo' },
+  { src: CssIcon, alt: 'CSS logo' },
+  { src: JavascriptIcon, alt: 'JavaScript logo' },
+  { src: VueIcon, alt: 'Vue logo' },
+  { src: ReactIcon, alt: 'React logo', class: 'rotate' }, // Handles rotation via class
+  { src: GitIcon, alt: 'Git logo' },
+  { src: TypescriptIcon, alt: 'TypeScript logo' },
+  { src: NodeIcon, alt: 'Node.js logo' },
+  { src: PhpIcon, alt: 'PHP logo' }
 ])
 
 // Active index state
