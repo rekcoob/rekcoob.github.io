@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser'
 const form = ref(null)
 const responseMessage = ref('')
 
-// Access environment variables
+// Environment variables
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -15,10 +15,10 @@ const sendEmail = async () => {
     await emailjs.sendForm(serviceId, templateId, form.value, {
       publicKey
     })
-    console.log('SUCCESS!')
+    // console.log('SUCCESS!')
     responseMessage.value = 'Your message has been sent successfully!'
   } catch (error) {
-    console.log('FAILED...', error.text)
+    // console.log('FAILED...', error.text)
     responseMessage.value = 'Failed to send message.'
   }
 }
@@ -84,8 +84,7 @@ const sendEmail = async () => {
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 .box h2 {
-  margin: 0 0 1.875rem; /* 30px in rem */
-  padding: 0;
+  margin-bottom: 1.875rem; /* 30px in rem */
   text-align: center;
 }
 

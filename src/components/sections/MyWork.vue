@@ -1,20 +1,20 @@
 <script setup>
 import { ref } from 'vue'
 import Lightbox from '../ui/LightBox.vue'
+import boxCrafter from '@/assets/img/projects/box-crafter.png'
 import movieApp from '@/assets/img/projects/movie-app.jpg'
 import mernShop from '@/assets/img/projects/mern-shop.jpg'
-import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
-import githubSearcher from '@/assets/img/projects/github-searcher.jpg'
+// import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
+import githubSearcher from '@/assets/img/projects/github-searcher2.png'
 
 const projects = ref([
   {
-    img: breakingBad,
-    title:
-      'React app using breaking bad api to show and filter characters from the show. Built with React, Typescript & Sass',
-    name: 'Breaking Bad Actors',
-    projectLink: 'https://rekcoob-movies.netlify.app/',
-    githubLink: 'https://github.com/rekcoob/breaking-bad',
-    technologies: ['Vue', 'Node', 'cockhead']
+    img: boxCrafter,
+    title: 'Web App that converts Box Dimensions to DXF file built with React',
+    name: 'Box Crafter',
+    projectLink: 'https://box-crafter.netlify.app',
+    githubLink: 'https://github.com/rekcoob/box_to_dxf',
+    technologies: ['React', 'Typescript']
   },
   {
     img: movieApp,
@@ -23,7 +23,7 @@ const projects = ref([
     name: 'Movie App',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/movie-app',
-    technologies: ['React', 'Redux', 'Typescript']
+    technologies: ['React', 'Typescript', 'Redux']
   },
   {
     img: mernShop,
@@ -41,7 +41,7 @@ const projects = ref([
     name: 'Github Searcher',
     projectLink: 'https://rekcoob-github.netlify.app/',
     githubLink: 'https://github.com/rekcoob/github-searcher',
-    technologies: ['React']
+    technologies: ['React', 'Typescript']
   }
 ])
 

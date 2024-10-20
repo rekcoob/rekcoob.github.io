@@ -6,7 +6,7 @@ import TypeWriter from '../ui/TypeWriter.vue'
   <section class="hero_section">
     <h2 class="primary fade-in">Ivanovic Marian</h2>
     <TypeWriter />
-    <p class="fade-in">JavaScript developer</p>
+    <p class="fade-in">Full Stack Web Developer</p>
     <a href="#work" class="btn-main fade-in">My Work</a>
   </section>
 </template>

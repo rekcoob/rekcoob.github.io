@@ -9,7 +9,10 @@ import {
   TypescriptIcon,
   GitIcon,
   NodeIcon,
-  PhpIcon
+  // AngularIcon,
+  // PythonIcon,
+  // PhpIcon,
+  DockerIcon
 } from '@/assets/icons'
 
 import ToggleBtn from '../ui/ToggleBtn.vue'
@@ -20,10 +23,13 @@ const icons = ref([
   { src: JavascriptIcon, alt: 'JavaScript logo' },
   { src: VueIcon, alt: 'Vue logo' },
   { src: ReactIcon, alt: 'React logo', class: 'rotate' }, // Handles rotation via class
+  // { src: AngularIcon, alt: 'Angular logo' },
   { src: GitIcon, alt: 'Git logo' },
   { src: TypescriptIcon, alt: 'TypeScript logo' },
   { src: NodeIcon, alt: 'Node.js logo' },
-  { src: PhpIcon, alt: 'PHP logo' }
+  // { src: PythonIcon, alt: 'Python logo' },
+  // { src: PhpIcon, alt: 'Php logo' },
+  { src: DockerIcon, alt: 'Docker logo' }
 ])
 
 // Active index state
