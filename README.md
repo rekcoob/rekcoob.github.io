@@ -1,5 +1,3 @@
-"Set up new Vue project and connect to GitHub repo"
-
 # 🧬 Vue Portfolio
 
 This is my personal portfolio built with **Vue.js**, showcasing my projects, skills, and experience.
@@ -37,4 +35,4 @@ npm run dev
 
 Visit [http://localhost:5173](http://localhost:5173)
 
-**Email JS Integration** – For setup details, see [EmailJS Setup](EMAILJS_SETUP.md).
+**Email JS Integration** – For setup details, see [EmailJS Setup](docs/EMAILJS_SETUP.md).

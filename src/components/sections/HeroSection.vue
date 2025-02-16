@@ -1,5 +1,15 @@
 <script setup>
 import TypeWriter from '../ui/TypeWriter.vue'
+
+// Function to track clicks on the link
+const trackClick = () => {
+  // Send event to Google Analytics using window.gtag
+  window.gtag('event', 'click', {
+    event_category: 'Hero_Section',
+    event_label: 'My_Work_Link',
+    value: 1,
+  })
+}
 </script>
 
 <template>
@@ -7,7 +17,7 @@ import TypeWriter from '../ui/TypeWriter.vue'
     <h2 class="primary fade-in">Ivanovic Marian</h2>
     <TypeWriter />
     <p class="fade-in">Full Stack Web Developer</p>
-    <a href="#work" class="btn-main fade-in">My Work</a>
+    <a href="#work" class="btn-main fade-in" @click="trackClick">My Work</a>
   </section>
 </template>
 
