@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import emailjs from '@emailjs/browser'
 
 const form = ref(null)
+const email = ref('')
+
 const responseMessage = ref('')
 
 // Environment variables
@@ -35,7 +37,7 @@ const sendEmail = async () => {
         </div>
         <div class="inputBox">
           <input type="email" v-model="email" name="email" required />
-          <label>Email</label>
+          <label :class="{ 'non-empty': email }">Email</label>
         </div>
         <div class="inputBox">
           <textarea
@@ -96,30 +98,15 @@ const sendEmail = async () => {
 .inputBox textarea {
   font-family: inherit;
   width: 100%;
-  padding: 0.625rem 0; /* 10px in rem */
-  font-size: 1.4375rem; /* 23px in rem */
-  letter-spacing: 0.0625rem; /* 1px in rem */
-  margin-bottom: 1.875rem; /* 30px in rem */
+  padding: 0.625rem 0;
+  font-size: 1.4375rem;
+  letter-spacing: 0.0625rem;
+  margin-bottom: 1.875rem;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
   color: #fff;
-}
-
-.inputBox input:focus {
-  border-bottom: 1px solid var(--primary-color);
-}
-
-.inputBox input:-webkit-autofill,
-.inputBox input:-webkit-autofill:hover,
-.inputBox input:-webkit-autofill:focus,
-.inputBox input:-webkit-autofill:active {
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
-  -webkit-transition-delay: 5000s;
-  transition-delay: 5000s;
-  -webkit-text-fill-color: var(--text-color);
 }
 
 .inputBox label {
@@ -133,19 +120,21 @@ const sendEmail = async () => {
   transition: 0.5s;
 }
 
-/* ? */
-.inputBox textarea:focus {
-  border-bottom: 1px solid var(--primary-color);
-}
-
-.box .inputBox input:focus ~ label,
-.box .inputBox input:valid ~ label,
-.box .inputBox textarea:focus ~ label,
-.box .inputBox textarea:valid ~ label {
+/* Fixed selectors for label animation */
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label,
+.inputBox textarea:focus ~ label,
+.inputBox textarea:valid ~ label {
   top: -18px;
   left: 0;
   color: var(--primary-color);
   font-size: 15px;
+}
+
+/* Input focus styles */
+.inputBox input:focus,
+.inputBox textarea:focus {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .submit {
@@ -171,6 +160,13 @@ const sendEmail = async () => {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 50px var(--primary-color);
+}
+
+.non-empty {
+  top: -18px;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 15px;
 }
 
 /* Form submit response msg */

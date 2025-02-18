@@ -12,7 +12,7 @@ import {
   // AngularIcon,
   // PythonIcon,
   // PhpIcon,
-  DockerIcon
+  DockerIcon,
 } from '@/assets/icons'
 
 import ToggleBtn from '../ui/ToggleBtn.vue'
@@ -29,7 +29,7 @@ const icons = ref([
   { src: NodeIcon, alt: 'Node.js logo' },
   // { src: PythonIcon, alt: 'Python logo' },
   // { src: PhpIcon, alt: 'Php logo' },
-  { src: DockerIcon, alt: 'Docker logo' }
+  { src: DockerIcon, alt: 'Docker logo' },
 ])
 
 // Active index state
@@ -88,7 +88,7 @@ onMounted(() => {
             :alt="icon.alt"
             :class="{
               active: isLighted === true || activeIndex === index,
-              rotate: index === 4
+              rotate: index === 4,
             }"
             @mouseenter="setActiveIndex(index)"
             @mouseleave="resetStateOriginal"
@@ -124,6 +124,7 @@ onMounted(() => {
 }
 
 img {
+  margin: 1rem 0;
   width: 6.5rem;
   filter: grayscale(100%) brightness(50%);
 }

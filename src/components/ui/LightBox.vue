@@ -11,6 +11,10 @@ import {
 
 defineProps({
   isActive: Boolean,
+
+  images: Array, // Array of image objects
+  currentIndex: Number, // Current image index
+
   currentImageSrc: String,
   currentImageTitle: String,
   projectLink: String,
@@ -74,10 +78,10 @@ const techIcons = {
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   animation: fadeIn 0.7s;
-  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 @keyframes fadeIn {
   0% {
@@ -90,13 +94,15 @@ const techIcons = {
 
 .lightbox-content {
   position: relative;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  max-width: 90%;
+  max-height: 90vh;
 }
 
 .lightbox-image {
-  border: 3px solid white;
+  border: 2px solid white;
   max-width: 870px;
   max-height: 80vh;
 }
@@ -145,7 +151,7 @@ const techIcons = {
 
 .links a {
   background-color: var(--primary-color);
-  padding: 8px 16px;
+  padding: 6px 12px;
   margin-right: 8px;
   border-radius: 5px;
   /* filter: brightness(0.85); */

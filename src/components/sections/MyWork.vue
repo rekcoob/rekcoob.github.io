@@ -3,15 +3,15 @@ import { ref } from 'vue'
 import Lightbox from '../ui/LightBox.vue'
 import boxCrafter from '@/assets/img/projects-new/box-crafter.jpg'
 import layoutPlanner from '@/assets/img/projects-new/layout-planner.jpg'
-import movieApp from '@/assets/img/projects/movie-app.jpg'
+import movieApp from '@/assets/img/projects-new/movie-app-new.jpg'
 import mernShop from '@/assets/img/projects/mern-shop.jpg'
-// import breakingBad from '@/assets/img/projects/breaking-bad.jpg'
-import githubSearcher from '@/assets/img/projects/github-searcher2.png'
+import githubSearcher from '@/assets/img/projects-new/git-finder.jpg'
 
 const projects = ref([
   {
     img: boxCrafter,
-    title: 'React app for designing custom boxes and exporting DXF files for manufacturing',
+    title:
+      'React app for designing boxes ready for manufacturing. From user inputs, material thickness, and FEFCO box style to a downloadable DXF which can be created on a papercut machine straight away',
     name: 'Box Crafter',
     projectLink: 'https://box-crafter.netlify.app',
     githubLink: 'https://github.com/rekcoob/box_to_dxf',
@@ -38,9 +38,9 @@ const projects = ref([
   {
     img: githubSearcher,
     title:
-      'App using GitHub API to search GitHub profiles, with light and dark modes and three color schemes',
+      'React app for searching GitHub profiles with repositories, featuring light and dark modes, along with three color schemes',
     name: 'Git Finder',
-    projectLink: 'https://rekcoob-github.netlify.app/',
+    projectLink: 'https://rekcoob-git-finder.netlify.app/',
     githubLink: 'https://github.com/rekcoob/github-searcher',
     technologies: ['React', 'Typescript'],
   },
