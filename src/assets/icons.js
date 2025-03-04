@@ -12,6 +12,7 @@ import DockerIcon from '@/assets/icons/docker.svg'
 import NodeIcon from '@/assets/icons/node.svg'
 import PythonIcon from '@/assets/icons/python.svg'
 import PhpIcon from '@/assets/icons/php.svg'
+import LaravelIcon from '@/assets/icons/laravel.svg'
 
 import ReduxIcon from '@/assets/icons/redux.svg'
 import MongoIcon from '@/assets/icons/mongo.svg'
@@ -32,6 +33,7 @@ export {
   closeIcon,
   AngularIcon,
   PythonIcon,
+  LaravelIcon,
   PhpIcon,
-  DockerIcon
+  DockerIcon,
 }

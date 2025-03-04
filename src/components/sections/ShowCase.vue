@@ -7,11 +7,12 @@ import {
   VueIcon,
   ReactIcon,
   TypescriptIcon,
-  GitIcon,
+  // GitIcon,
   NodeIcon,
+  // PhpIcon,
+  LaravelIcon,
   // AngularIcon,
   // PythonIcon,
-  // PhpIcon,
   DockerIcon,
 } from '@/assets/icons'
 
@@ -24,11 +25,12 @@ const icons = ref([
   { src: VueIcon, alt: 'Vue logo' },
   { src: ReactIcon, alt: 'React logo', class: 'rotate' }, // Handles rotation via class
   // { src: AngularIcon, alt: 'Angular logo' },
-  { src: GitIcon, alt: 'Git logo' },
+  { src: LaravelIcon, alt: 'Laravel logo' },
   { src: TypescriptIcon, alt: 'TypeScript logo' },
   { src: NodeIcon, alt: 'Node.js logo' },
-  // { src: PythonIcon, alt: 'Python logo' },
   // { src: PhpIcon, alt: 'Php logo' },
+  // { src: GitIcon, alt: 'Git logo' },
+  // { src: PythonIcon, alt: 'Python logo' },
   { src: DockerIcon, alt: 'Docker logo' },
 ])
 

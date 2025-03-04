@@ -49,7 +49,7 @@ p {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 50px var(--primary-color);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
 }
 
 /* Responsive */

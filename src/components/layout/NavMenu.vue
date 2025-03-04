@@ -8,7 +8,16 @@
     <ul>
       <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#work" class="nav-link">My Work</a></li>
-      <li><a href="#footer" class="nav-link">GitHub</a></li>
+      <li>
+        <a
+          href="https://github.com/rekcoob"
+          class="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+      </li>
+
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
   </nav>

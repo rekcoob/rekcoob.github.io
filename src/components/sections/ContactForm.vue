@@ -3,8 +3,9 @@ import { ref } from 'vue'
 import emailjs from '@emailjs/browser'
 
 const form = ref(null)
+const name = ref('')
 const email = ref('')
-
+const message = ref('')
 const responseMessage = ref('')
 
 // Environment variables
@@ -32,12 +33,26 @@ const sendEmail = async () => {
       <h2>Contact Me</h2>
       <form ref="form" @submit.prevent="sendEmail">
         <div class="inputBox">
-          <input type="text" v-model="name" name="name" required />
+          <input
+            type="text"
+            v-model="name"
+            name="name"
+            required
+            placeholder=""
+            spellcheck="false"
+          />
           <label>Name</label>
         </div>
         <div class="inputBox">
-          <input type="email" v-model="email" name="email" required />
-          <label :class="{ 'non-empty': email }">Email</label>
+          <input
+            type="email"
+            v-model="email"
+            name="email"
+            required
+            placeholder=""
+            spellcheck="false"
+          />
+          <label>Email</label>
         </div>
         <div class="inputBox">
           <textarea
@@ -46,6 +61,8 @@ const sendEmail = async () => {
             style="resize: none"
             rows="8"
             required
+            placeholder=""
+            spellcheck="false"
           ></textarea>
           <label>Message</label>
         </div>
@@ -92,6 +109,7 @@ const sendEmail = async () => {
 
 .inputBox {
   position: relative;
+  margin-bottom: 1.875rem;
 }
 
 .inputBox input,
@@ -101,7 +119,6 @@ const sendEmail = async () => {
   padding: 0.625rem 0;
   font-size: 1.4375rem;
   letter-spacing: 0.0625rem;
-  margin-bottom: 1.875rem;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
@@ -121,17 +138,20 @@ const sendEmail = async () => {
 }
 
 /* Fixed selectors for label animation */
-.inputBox input:focus ~ label,
+/* .inputBox input:focus ~ label,
 .inputBox input:valid ~ label,
 .inputBox textarea:focus ~ label,
-.inputBox textarea:valid ~ label {
+.inputBox textarea:valid ~ label { */
+.inputBox input:not(:placeholder-shown) ~ label,
+.inputBox input:focus ~ label,
+.inputBox textarea:not(:placeholder-shown) ~ label,
+.inputBox textarea:focus ~ label {
   top: -18px;
   left: 0;
   color: var(--primary-color);
   font-size: 15px;
 }
 
-/* Input focus styles */
 .inputBox input:focus,
 .inputBox textarea:focus {
   border-bottom: 1px solid var(--primary-color);
@@ -152,21 +172,14 @@ const sendEmail = async () => {
   letter-spacing: 2px;
   font-size: 18px;
   transition: 0.5s;
-  /* zrkadlovy odraz pod */
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
 }
 
 .box input[type='submit']:hover {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 50px var(--primary-color);
-}
-
-.non-empty {
-  top: -18px;
-  left: 0;
-  color: var(--primary-color);
-  font-size: 15px;
+  /* Mirror Effect Under */
+  /* -webkit-box-reflect: below 1px linear-gradient(transparent, #0003); */
 }
 
 /* Form submit response msg */
@@ -179,6 +192,17 @@ const sendEmail = async () => {
 }
 .response.error {
   color: #f44336;
+}
+
+/** Autofill Styles */
+.inputBox input:-webkit-autofill,
+.inputBox input:-webkit-autofill:focus,
+.inputBox textarea:-webkit-autofill,
+.inputBox textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  background-color: transparent;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #fff;
 }
 
 /* Responsive */

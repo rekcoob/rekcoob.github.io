@@ -29,7 +29,8 @@ const projects = ref([
   {
     img: movieApp,
     title:
-      'Movie App built with Next.js and TypeScript. With add to favorites and infinite scroll features',
+      'Movie App built with Next.js and TypeScript. With add to favorites, trailer and infinite scroll features',
+
     name: 'Movie App',
     projectLink: 'https://rekcoob-movies.netlify.app/',
     githubLink: 'https://github.com/rekcoob/movie-app',
